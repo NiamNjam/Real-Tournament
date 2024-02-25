@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
 	public UnityEvent onRightClick;
 
 	public GameObject bulletPrefab;
+	public UnityEvent onShoot;
+	public UnityEvent<bool> onReload;
 	public int ammo;
 	public int maxAmmo = 10;
 	public bool isReloading;
@@ -55,6 +57,7 @@ public class Weapon : MonoBehaviour
 
 		ammo--;
 		fireCooldown = fireInterval;
+		onShoot.Invoke();
 
 		for (int i = 0; i < bulletsPerShot; i++)
 		{
@@ -70,11 +73,12 @@ public class Weapon : MonoBehaviour
 	{
 		if (isReloading) return;
 		isReloading = true;
-
+		onReload.Invoke(false); //pradejo reloadint
 		await new WaitForSeconds(2f);
 
 		ammo = maxAmmo;
 		isReloading = false;
+		onReload.Invoke(true); //baige reloadint
 		print ("Reloaded");
 	}
 }
