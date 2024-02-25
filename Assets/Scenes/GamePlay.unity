@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -613,6 +613,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8644ad5f2c78844f0a0523ef75abe8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  shouldDestroy: 1
+  damageEffect: {fileID: 6964220719160798122, guid: 85cec28991fe6a24da007fe4b4dffa58,
+    type: 3}
+  deathEffect: {fileID: 1519012593573032860, guid: 9d06a3dbfbaa7b64bbcb8f53b488df8f,
+    type: 3}
   health: 0
   maxHealth: 100
 --- !u!1 &1272265556
@@ -730,6 +741,12 @@ MonoBehaviour:
         m_CallState: 2
   bulletPrefab: {fileID: 3732050572547027184, guid: df62d9183aeff46ae883a674699ee7f0,
     type: 3}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  onReload:
+    m_PersistentCalls:
+      m_Calls: []
   ammo: 30
   maxAmmo: 30
   isReloading: 0
@@ -875,8 +892,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8644ad5f2c78844f0a0523ef75abe8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  shouldDestroy: 1
+  damageEffect: {fileID: 0}
+  deathEffect: {fileID: 0}
   health: 0
   maxHealth: 100
+--- !u!114 &1328022910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328022896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611aa942ab453cd4ab476ad0c1f72512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 865703537}
+  hp: {fileID: 0}
+  activated: 1
 --- !u!1 &1399242185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,6 +1540,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1272265557}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1328022910}
     - targetCorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
         type: 3}
       insertIndex: -1
