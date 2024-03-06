@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     public UnityEvent onDie;
     public UnityEvent onDamage;
+    public AudioClip zombieSound;
+    public AudioSource source;
     void Start()
     {
         if(health == 0) health = maxHealth;
@@ -34,6 +36,8 @@ public class Health : MonoBehaviour
     public void Die()
     {
         if(shouldDestroy)Destroy(gameObject);
+        source.clip = zombieSound;
+        source.Play();
         onDie.Invoke();
         if( deathEffect != null) Instantiate(deathEffect,transform.position,Quaternion.identity);
     }
