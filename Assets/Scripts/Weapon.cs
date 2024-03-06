@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
 	public float fireCooldown;
 	public float recoilAngle;
 	public int bulletsPerShot = 1;
+
 	void Update()
 	{
 
@@ -32,10 +33,11 @@ public class Weapon : MonoBehaviour
 			return;
 		}
 		if(fireCooldown > 0) return;
-
+		
 		ammo--;
 		fireCooldown = fireInterval;
 		onShoot.Invoke();
+		
 
 		for (int i = 0; i < bulletsPerShot; i++)
 		{
@@ -43,6 +45,7 @@ public class Weapon : MonoBehaviour
 			var offsetX = Random.Range(-recoilAngle,recoilAngle);
 			var offsetY = Random.Range(-recoilAngle,recoilAngle);
 			bullet.transform.eulerAngles += new Vector3(offsetX, offsetY, 0);
+			
 		}
 	}
 
